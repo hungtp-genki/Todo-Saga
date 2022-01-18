@@ -1,9 +1,16 @@
 import React from "react";
 import { colorPurple } from "../../constant";
 import Button from "../Button";
+import { removeAllTodo } from "../../redux/todo_slice";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 
 function TodoNumber() {
-  const numberOfTodos = 13;
+  const numberOfTodos = useAppSelector((state) => state.todo.todos.length);
+  const dispatch = useAppDispatch();
+  const onClearAllTodo = () => {
+    dispatch(removeAllTodo());
+  };
+
   return (
     <div
       style={{
@@ -20,7 +27,7 @@ function TodoNumber() {
         style={{ display: "flex", flex: "1", padding: "0 1em" }}
       >{`You have ${numberOfTodos} pending tasks`}</p>
       <Button
-        onClick={() => {}}
+        onClick={onClearAllTodo}
         width={100}
         bgColor={colorPurple}
         textColor="white"
