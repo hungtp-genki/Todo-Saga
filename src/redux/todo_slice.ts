@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import { uniqBy } from "lodash";
 interface TodoState {
   todos: { name: string }[];
 }
@@ -27,7 +27,7 @@ export const todoSlice = createSlice({
   initialState: initialState,
   reducers: {
     addTodo: (state, action: PayloadAction<{ name: string }>) => {
-      state.todos = [...state.todos, action.payload];
+      state.todos = uniqBy([...state.todos, action.payload], "name");
     },
     removeTodo: (state, action: PayloadAction<{ name: string }>) => {
       state.todos = [
