@@ -7,6 +7,10 @@ body {
   text-align: center;
   height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #4f8ee3; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom,
