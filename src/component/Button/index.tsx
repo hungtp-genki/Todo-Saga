@@ -20,6 +20,7 @@ function Button(props: {
         height: props.height ?? 50,
         margin: props.margin ?? 0,
       }}
+      onClick={props.onClick}
     >
       {props.children}
     </button>
