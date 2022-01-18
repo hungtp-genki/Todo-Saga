@@ -25,7 +25,9 @@ function TodoNumber() {
     >
       <p
         style={{ display: "flex", flex: "1", padding: "0 1em" }}
-      >{`You have ${numberOfTodos} pending tasks`}</p>
+      >{`You have ${numberOfTodos} pending task${
+        numberOfTodos >= 2 ? "s" : ""
+      }`}</p>
       <Button
         onClick={onClearAllTodo}
         width={100}
